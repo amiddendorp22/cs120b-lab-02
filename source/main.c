@@ -15,35 +15,83 @@
 int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF;
-    DDRB = 0xFF; PORTB = 0x00;
-
+    DDRC = 0xFF; PORTC = 0x00;
+    
+    unsigned char cntavail;
     unsigned char tmpA;
-    unsigned char tmpB;
 
     /* Insert your solution below */
     while (1) {
-	tmpA = PINA & 0x03; //grabs the last two bits from PINA (all we care about for this exercise)
-	if(tmpA == 0x03) // tmpA == 0x03
+	tmpA = PINA & 0x0F; //grabs last 4 bits from PINA (all we care about for this exercise)
+	if(tmpA == 0x00)
 	{
-		tmpB = 0x00;
+		cntavail = 0x04;
 	}
-	else if (tmpA == 0x02) //tmpA == 0x02
+	else if (tmpA == 0x01)
 	{
-		tmpB = 0x00;
+		cntavail = 0x03;
 	}
-	else if (tmpA == 0x01) //tmpA == 0x01
+	else if (tmpA == 0x02)
 	{
-		tmpB = 0x01;
+		cntavail = 0x03;
 	}
-	else if (tmpA == 0x00) //tmpA == 0x00
+	else if (tmpA == 0x03)
 	{
-		tmpB = 0x00;
+		cntavail = 0x02;
 	}
+	else if (tmpA == 0x04)
+        {
+                cntavail = 0x03;
+        }
+	else if (tmpA == 0x05)
+        {
+                cntavail = 0x02;
+        }
+	else if (tmpA == 0x06)
+        {
+                cntavail = 0x02;
+        }
+	else if (tmpA == 0x07)
+        {
+                cntavail = 0x01;
+        }
+	else if (tmpA == 0x08)
+        {
+                cntavail = 0x03;
+        }
+	else if (tmpA == 0x09)
+        {
+                cntavail = 0x02;
+        }
+	else if (tmpA == 0x0A)
+        {
+                cntavail = 0x02;
+        }
+	else if (tmpA == 0x0B)
+        {
+                cntavail = 0x01;
+        }
+	else if (tmpA == 0x0C)
+        {
+                cntavail = 0x02;
+        }
+	else if (tmpA == 0x0D)
+        {
+                cntavail = 0x01;
+        }
+	else if (tmpA == 0x0E)
+        {
+                cntavail = 0x01;
+        }
+	else if (tmpA == 0x0F)
+        {
+                cntavail = 0x00;
+        }
 	else
 	{
-		tmpB = 0x00;
+		cntavail = 0x00;
 	}
-	PORTB = tmpB;
+	PORTC = cntavail;
     }
     
     return 0;

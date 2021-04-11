@@ -22,7 +22,7 @@ int main(void) {
 
     /* Insert your solution below */
     while (1) {
-	tmpA = PINA & 0xFF; //grabs all bits from PORTA
+	tmpA = PINA & 0x0F; //grabs last 4 bits from PINA (all we care about for this exercise)
 	if(tmpA == 0x00)
 	{
 		cntavail = 0x04;
