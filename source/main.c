@@ -22,7 +22,7 @@ int main(void) {
 
     /* Insert your solution below */
     while (1) {
-	tmpA = PINA & 0x0F; //grabs last 4 bits from PINA (all we care about for this exercise)
+	tmpA = PINA & 0xFF; //grabs all bits from PORTA
 	if(tmpA == 0x00)
 	{
 		cntavail = 0x04;
@@ -85,8 +85,16 @@ int main(void) {
         }
 	else if (tmpA == 0x0F)
         {
-                cntavail = 0x00;
+                cntavail = 0x80; //sets available spaces to PC3...PC0, and sets PC7 to 1 because the parking lot is full.
         }
+	else if (tmpA == 0x80)
+	{
+		cntavail = 0x04;
+	}
+	else if (tmpA == 0x4F)
+	{
+		cntavail = 0x80;
+	}
 	else
 	{
 		cntavail = 0x00;

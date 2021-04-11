@@ -87,6 +87,14 @@ int main(void) {
         {
                 cntavail = 0x80; //sets available spaces to PC3...PC0, and sets PC7 to 1 because the parking lot is full.
         }
+	else if (tmpA == 0x80)
+	{
+		cntavail = 0x04;
+	}
+	else if (tmpA == 0x4F)
+	{
+		cntavail = 0x80;
+	}
 	else
 	{
 		cntavail = 0x00;

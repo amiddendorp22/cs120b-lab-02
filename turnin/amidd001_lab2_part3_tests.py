@@ -78,7 +78,14 @@ tests = [ {'description': 'PA0 PA1 PA2 PA3  == 0 0 0 0',
      'steps': [ {'inputs': [('PINA', 0x0F)], 'iterations': 5} ],
      'expected': [('PORTC', 0x80)],
     },
-
+    {'description': 'PINA: 0x80 => PORTC: 4',
+     'steps': [ {'inputs': [('PINA',0x80)], 'iterations': 5} ],
+     'expected': [('PORTC', 0x04)],
+    },
+    {'description': 'PINA: 0x4F => PORTC[3:0]: 0, PC7: 1',
+     'steps': [ {'inputs': [('PINA', 0x4F)], 'iterations': 5} ],
+     'expected': [('PORTC', 0x80)],
+    },
     ]
 #watch = ['PORTB']
 
