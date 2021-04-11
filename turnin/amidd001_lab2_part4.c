@@ -47,13 +47,13 @@ int main(void) {
 			if( (tmpA - tmpC) > 0x50)
 			{
 				// we want FFFFFF11
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x03; //sets D1 and D0 to 1
 			}
 			else
 			{
 				// we want FFFFFF01
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x01; //makes D0 = 1
 			}
 		}
@@ -62,13 +62,13 @@ int main(void) {
 			if( (tmpC - tmpA) > 0x50)
 			{
 				//we want FFFFFF11
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x03; //sets D1 and D0 to 1
 			}
 			else
 			{
 				//we want FFFFFF01
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x01; //makes D0 = 1
 			}
 		}
@@ -80,13 +80,13 @@ int main(void) {
 			if( (tmpA - tmpC) > 0x50)
 			{
 				// we want FFFFFF10
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x02; //sets D1 to 1
 			}
 			else
 			{
 				// we want FFFFFF00
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 			}
 		}
 		else
@@ -94,13 +94,13 @@ int main(void) {
 			if( (tmpC - tmpA) > 0x50)
 			{
 				//we want FFFFFF10
-				tmpD = currWeight & 0xFC; //makes D7..D2 = currWeight7..currWeight2
+				tmpD = (currWeight >> 2) & 0xFC; //makes D7..D2 = currWeight7..currWeight2
 				tmpD = tmpD + 0x02;
 			}
 			else
 			{
 				//we want FFFFFF00
-				tmpD = currWeight & 0xFC;
+				tmpD = (currWeight >> 2) & 0xFC;
 			}
 		}
     	} //end of else
