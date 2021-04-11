@@ -30,6 +30,10 @@ tests = [ {'description': 'PA1 PA0 == 0 0',
      'steps': [ {'inputs': [('PINA', 0x03)], 'iterations': 5} ],
      'expected': [('PORTB', 0x00)],
     },
+    {'description': 'PINA 0b0000_0101 => PORTB: 0x01',
+    'steps': [ {'inputs': [('PINA', 0b00000101)], 'iterations':5 } ],
+    'expected': [('PORTB',0x01)],
+    },
     ]
 #watch = ['PORTB']
 

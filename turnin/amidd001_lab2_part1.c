@@ -22,10 +22,10 @@ int main(void) {
 
     /* Insert your solution below */
     while (1) {
-	tmpA = PINA & 0xFF; //grabs all bits from PORTA
+	tmpA = PINA & 0x03; //grabs the last two bits from PINA (all we care about for this exercise)
 	if(tmpA == 0x03) // tmpA == 0x03
 	{
-		tmpB = 0x00;;
+		tmpB = 0x00;
 	}
 	else if (tmpA == 0x02) //tmpA == 0x02
 	{
